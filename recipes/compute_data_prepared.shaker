@@ -1,29 +1,65 @@
 {
+  "columnsSelection": {
+    "mode": "ALL"
+  },
+  "explorationSampling": {
+    "_refreshTrigger": 0,
+    "selection": {
+      "filter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "latestPartitionsN": 1,
+      "maxRecords": 30000,
+      "maxRecordsForDisplay": -1,
+      "ordering": {
+        "rules": [],
+        "enabled": false
+      },
+      "withinFirstN": -1,
+      "partitionSelectionMethod": "ALL",
+      "maxStoredBytes": -1,
+      "targetRatio": 0.02,
+      "maxReadUncompressedBytes": -1,
+      "samplingMethod": "HEAD_SEQUENTIAL",
+      "timeout": -1
+    },
+    "autoRefreshSample": false
+  },
+  "explorationFilters": [],
+  "columnUseScientificNotationByName": {},
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
   "steps": [
     {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "FindReplace",
       "params": {
         "output": "",
-        "normalization": "EXACT",
-        "matching": "SUBSTRING",
-        "stopAfterFirstMatch": false,
         "mapping": [
           {
             "from": ",",
             "to": "."
           }
         ],
-        "appliesTo": "SINGLE_COLUMN",
+        "normalization": "EXACT",
         "columns": [
           "temperature"
-        ]
+        ],
+        "appliesTo": "SINGLE_COLUMN",
+        "stopAfterFirstMatch": false,
+        "matching": "SUBSTRING"
       },
-      "metaType": "PROCESSOR",
-      "preview": false,
-      "disabled": false,
       "alwaysShowComment": false
     },
     {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "MultiColumnFold",
       "params": {
         "columns": [
@@ -31,109 +67,109 @@
           "ID18",
           "ID31"
         ],
-        "foldNameColumn": "Site",
-        "foldValueColumn": "Value"
+        "foldValueColumn": "Value",
+        "foldNameColumn": "Site"
       },
-      "metaType": "PROCESSOR",
-      "preview": false,
-      "disabled": false,
       "alwaysShowComment": false
     },
     {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "FilterOnValue",
       "params": {
+        "normalizationMode": "EXACT",
+        "booleanMode": "AND",
+        "columns": [
+          "Value"
+        ],
         "values": [
           "1"
         ],
         "matchingMode": "FULL_STRING",
-        "normalizationMode": "EXACT",
         "action": "KEEP_ROW",
-        "booleanMode": "AND",
-        "appliesTo": "SINGLE_COLUMN",
-        "columns": [
-          "Value"
-        ]
+        "appliesTo": "SINGLE_COLUMN"
       },
-      "metaType": "PROCESSOR",
-      "preview": false,
-      "disabled": false,
       "alwaysShowComment": false
     },
     {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "ColumnsSelector",
       "params": {
-        "keep": false,
-        "appliesTo": "COLUMNS",
         "columns": [
           "ID01",
           "ID18",
           "ID31",
           "Value"
-        ]
+        ],
+        "keep": false,
+        "appliesTo": "COLUMNS"
       },
-      "metaType": "PROCESSOR",
-      "preview": false,
-      "disabled": false,
       "alwaysShowComment": false
     },
     {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "MemoryEquiJoiner",
       "params": {
-        "leftCol": "Site",
-        "rightInput": "sites",
         "rightCol": "ID",
+        "forceRawLevenshteinEngine": false,
+        "copyPrefix": "",
+        "sortAlphabetically": false,
+        "language": "english",
+        "leftCol": "Site",
         "copyColumns": [
           "NAF code"
         ],
-        "copyPrefix": "",
-        "fuzzy": false,
-        "maxLevenshtein": 1,
-        "forceRawLevenshteinEngine": false,
-        "sortAlphabetically": false,
-        "clearStopWords": false,
         "normalize": false,
-        "stem": false,
-        "language": "english"
+        "maxLevenshtein": 1,
+        "clearStopWords": false,
+        "fuzzy": false,
+        "rightInput": "sites",
+        "stem": false
       },
-      "metaType": "PROCESSOR",
-      "preview": false,
-      "disabled": false,
       "alwaysShowComment": false
     },
     {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "DateParser",
       "params": {
         "outCol": "DATE_LOCAL_parsed",
-        "lang": "auto",
-        "timezone_id": "UTC",
         "formats": [
           "dd/MM/yyyy HH:mm"
         ],
-        "appliesTo": "SINGLE_COLUMN",
         "columns": [
           "DATE_LOCAL"
-        ]
+        ],
+        "timezone_id": "UTC",
+        "appliesTo": "SINGLE_COLUMN",
+        "lang": "auto"
       },
-      "metaType": "PROCESSOR",
-      "preview": false,
-      "disabled": false,
       "alwaysShowComment": false
     },
     {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "DateComponentsExtractor",
       "params": {
-        "column": "DATE_LOCAL_parsed",
         "outMonthColumn": "month",
-        "outDayOfWeekColumn": "week_day",
         "outHourColumn": "hour",
+        "column": "DATE_LOCAL_parsed",
+        "outDayOfWeekColumn": "week_day",
         "timezone_id": "UTC"
       },
-      "metaType": "PROCESSOR",
-      "preview": false,
-      "disabled": false,
       "alwaysShowComment": false
     },
     {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "ColumnRenamer",
       "params": {
         "renamings": [
@@ -143,69 +179,102 @@
           }
         ]
       },
-      "metaType": "PROCESSOR",
-      "preview": false,
-      "disabled": false,
       "alwaysShowComment": false
     },
     {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "DateParser",
       "params": {
         "outCol": "day",
-        "lang": "auto",
-        "timezone_id": "UTC",
         "formats": [
           "dd/MM/yyyy"
         ],
-        "appliesTo": "SINGLE_COLUMN",
         "columns": [
           "DATE_LOCAL"
-        ]
+        ],
+        "timezone_id": "UTC",
+        "appliesTo": "SINGLE_COLUMN",
+        "lang": "auto"
       },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
       "metaType": "PROCESSOR",
-      "preview": true,
       "disabled": false,
+      "type": "StringTransformer",
+      "params": {
+        "mode": "TO_UPPER",
+        "columns": [
+          "NAF_code"
+        ],
+        "appliesTo": "SINGLE_COLUMN",
+        "truncate_limit": 0
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "StringTransformer",
+      "params": {
+        "mode": "TO_LOWER",
+        "columns": [
+          "Site"
+        ],
+        "appliesTo": "SINGLE_COLUMN",
+        "truncate_limit": 0
+      },
       "alwaysShowComment": false
     }
   ],
   "maxProcessedMemTableBytes": -1,
-  "origin": "PREPARE_RECIPE",
-  "columnsSelection": {
-    "mode": "ALL"
-  },
-  "coloring": {
-    "scheme": "MEANING_AND_STATUS",
-    "individualColumns": [],
-    "valueColoringMode": "HASH"
-  },
-  "sorting": [],
-  "analysisColumnData": {},
-  "explorationSampling": {
+  "previewMode": "ALL_ROWS",
+  "vizSampling": {
+    "_refreshTrigger": 0,
     "selection": {
-      "maxStoredBytes": -1,
+      "useMemTable": false,
       "filter": {
         "distinct": false,
         "enabled": false
       },
-      "partitionSelectionMethod": "ALL",
       "latestPartitionsN": 1,
-      "samplingMethod": "HEAD_SEQUENTIAL",
-      "maxRecords": 30000,
-      "targetRatio": 0.02,
+      "maxRecords": -1,
+      "ordering": {
+        "rules": [],
+        "enabled": false
+      },
       "withinFirstN": -1,
-      "maxReadUncompressedBytes": -1
+      "partitionSelectionMethod": "ALL",
+      "targetRatio": 0.02,
+      "maxReadUncompressedBytes": -1,
+      "samplingMethod": "FULL"
     },
-    "autoRefreshSample": false,
-    "_refreshTrigger": 0
+    "autoRefreshSample": false
   },
-  "vizSampling": {
-    "autoRefreshSample": false,
-    "_refreshTrigger": 0
+  "analysisColumnData": {},
+  "columnWidthsByName": {
+    "Site": 100,
+    "since_DATE_LOCAL_parsed_days": 225,
+    "month": 100,
+    "hour": 100,
+    "NAF_code": 134,
+    "temperature": 134,
+    "DATE_LOCAL": 127,
+    "week_day": 100,
+    "day": 183,
+    "DATE_LOCAL_parsed": 183,
+    "NAF_code_new": 105,
+    "consomation": 100
   },
-  "exploreUIParams": {
-    "autoRefresh": true
-  },
+  "sorting": [],
   "globalSearchQuery": "",
-  "explorationFilters": [],
-  "previewMode": "ALL_ROWS"
+  "coloring": {
+    "scheme": "MEANING_AND_STATUS",
+    "individualColumns": [],
+    "valueColoringMode": "HASH"
+  }
 }
