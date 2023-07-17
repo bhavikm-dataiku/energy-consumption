@@ -1,0 +1,176 @@
+{
+  "checklists": {
+    "checklists": []
+  }, 
+  "creationTag": {
+    "lastModifiedBy": {
+      "login": "admin"
+    }, 
+    "lastModifiedOn": 1486551094369, 
+    "versionNumber": 0
+  }, 
+  "dashboardCreationId": "IQVACLV", 
+  "listed": false, 
+  "name": "Consumption  as a function of Temperature on data_prepared", 
+  "owner": "admin", 
+  "params": {
+    "datasetSmartName": "data_prepared", 
+    "def": {
+      "axis1LogScale": false, 
+      "axis2LogScale": false, 
+      "boxplotBreakdownDim": [], 
+      "boxplotValue": [], 
+      "bubblesOptions": {
+        "defaultRadius": 5.0
+      }, 
+      "colorMeasure": [], 
+      "colorOptions": {
+        "ccScaleMode": "NORMAL", 
+        "colorPalette": "default", 
+        "singleColor": "#659a88", 
+        "transparency": 0.9
+      }, 
+      "colorPaletteType": "LINEAR", 
+      "computeMode": "NORMAL", 
+      "disableSafetyLimits": false, 
+      "filters": [], 
+      "genericDimension0": [], 
+      "genericDimension1": [], 
+      "genericMeasures": [], 
+      "geometry": [], 
+      "groupDimension": [
+        {
+          "column": "temperature", 
+          "filters": [], 
+          "generateOthersCategory": true, 
+          "isA": "dimension", 
+          "maxValues": 100, 
+          "numParams": {
+            "binSize": 100, 
+            "mode": "FIXED_NB", 
+            "nbBins": 300
+          }, 
+          "oneTickPerBin": false, 
+          "possibleSorts": [
+            {
+              "label": "Natural ordering", 
+              "sortAscending": true, 
+              "type": "NATURAL"
+            }
+          ], 
+          "sort": {
+            "label": "Natural ordering", 
+            "sortAscending": true, 
+            "type": "NATURAL"
+          }, 
+          "type": "NUMERICAL"
+        }
+      ], 
+      "hexbinNumber": 20, 
+      "hexbinRadius": 20, 
+      "hexbinRadiusMode": "NUM_HEXAGONS", 
+      "includeZero": true, 
+      "mapGridOptions": {
+        "gridLatDeg": 0.6, 
+        "gridLonDeg": 0.6
+      }, 
+      "mapOptions": {
+        "lockSquareGrid": false, 
+        "tilesLayer": "mapquest-std"
+      }, 
+      "name": "Consumption  as a function of Temperature", 
+      "pieOptions": {
+        "donutHoleSize": 50.0
+      }, 
+      "scatterOptions": {
+        "equalScales": false, 
+        "identityLine": false
+      }, 
+      "showLegend": true, 
+      "showXAxis": false, 
+      "sizeMeasure": [], 
+      "smoothing": true, 
+      "strokeWidth": 1, 
+      "thumbnailData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAACJUlEQVRoge2XMWsUQRTHn0jAToKCjV9ABGu10EItLGyEa1IEzb13xFYruwO52/80VhJu/vsNLO3ETogIxsLKQhsLN4kmqEG8mHi3Fjenp6JEuN2B7P5g2Z2B3fd7+2ZnZ0SqjKbu0mR7odc9E8slGgtMFkVErrXbh2K7FIoRmXqsqk9uxXYpHPV4ICIHjMiM+KREP7ZToRiRTbaV+Pp7377EiEGocqY9zMf2KQWl2xQRWWBysRJVFhEx4rkRO7E9SkVTt6qpOx3bo1QqM6THmMe6eiwbkSnxNrZP4WjqnlSqykY8VSYvlNhSYq3pMRfbqXDCcO6H//NNTd312E6lYUR+YymZje1RCuNvWYmhEsN9v5sa76KM2FbigxHbsZ1KxYh3VZvB3xuRjzccsX0Kx4i7YebOjchD38uSYmdGXC4j1h9o2jnWuN84OE7ciIF6fJx2HCMehvOblm/NhKQfGbEyunaLIx88m3bsf0h1z5vHrhJDI85O99k//xLhMxoYMdAUG0ZsTTPWfzO3lMxOVPyLMenu5b75e90jImGxk7rjRtz5kZjHRnjeSSPW1Cftlm/NiIg0e7hSZD57wohXLd8+akSudMMg2zcit9QNzWMw8VJ+OUIVx+0dIwbmsTs5OTZ7OBczv7/S8DhsdLeV+DxatLhN83htdN9GQ7JzyohlZfJYRMSI9VDhq5q6E7H9S6HZ61yI7VBTU1NTU1NTU1NTUzG+Ay0tT+MT9KtZAAAAAElFTkSuQmCC", 
+      "tooltipMeasures": [], 
+      "type": "grouped_xy", 
+      "uaColor": [], 
+      "uaShape": [], 
+      "uaSize": [], 
+      "uaTooltip": [], 
+      "uaXDimension": [], 
+      "uaYDimension": [], 
+      "useLiveProcessingIfAvailable": true, 
+      "userEditedName": true, 
+      "variant": "normal", 
+      "xAxisMode": "NORMAL", 
+      "xDimension": [], 
+      "xMeasure": [
+        {
+          "column": "temperature", 
+          "computeModeDim": 1, 
+          "displayAxis": "axis1", 
+          "displayType": "column", 
+          "displayed": true, 
+          "function": "AVG", 
+          "isA": "measure", 
+          "type": "NUMERICAL"
+        }
+      ], 
+      "yAxisMode": "NORMAL", 
+      "yDimension": [], 
+      "yMeasure": [
+        {
+          "column": "consomation", 
+          "computeModeDim": 1, 
+          "displayAxis": "axis1", 
+          "displayType": "column", 
+          "displayed": true, 
+          "function": "AVG", 
+          "isA": "measure", 
+          "type": "NUMERICAL"
+        }
+      ]
+    }, 
+    "engineType": "LINO", 
+    "refreshableSelection": {
+      "_refreshTrigger": 1, 
+      "autoRefreshSample": false, 
+      "selection": {
+        "filter": {
+          "distinct": false, 
+          "enabled": true, 
+          "uiData": {
+            "conditions": [
+              {
+                "col": "DATE_LOCAL_parsed", 
+                "input": "Site", 
+                "num": 0.0, 
+                "operator": "contains", 
+                "string": "ID18"
+              }
+            ], 
+            "mode": "&&"
+          }
+        }, 
+        "latestPartitionsN": 1, 
+        "maxReadUncompressedBytes": -1, 
+        "maxRecords": 200000, 
+        "partitionSelectionMethod": "ALL", 
+        "samplingMethod": "FULL", 
+        "targetRatio": 0.02, 
+        "useMemTable": false, 
+        "withinFirstN": -1
+      }
+    }
+  }, 
+  "tags": [], 
+  "type": "chart", 
+  "versionTag": {
+    "lastModifiedBy": {
+      "login": "admin"
+    }, 
+    "lastModifiedOn": 1486551094369, 
+    "versionNumber": 0
+  }
+}

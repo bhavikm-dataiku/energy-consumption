@@ -1,0 +1,154 @@
+{
+  "cumeDist": false,
+  "ntileValues": "10",
+  "rank": false,
+  "denseRank": false,
+  "outputColumnNameOverrides": {
+    "consomation_day_lag7": "consomation_day_of_previous_week",
+    "consomation_day_lag1": "consomation_previous_day",
+    "temperature_day_lag": "temperature_previous_day",
+    "temperature_day_avg": "temperature_week_avg"
+  },
+  "values": [
+    {
+      "leadDiff": false,
+      "min": false,
+      "max": false,
+      "lagDiff": false,
+      "count": false,
+      "last": false,
+      "leadValues": "1",
+      "sum": false,
+      "lead": false,
+      "type": "date",
+      "dateDiffUnit": "DAY",
+      "lag": false,
+      "lagValues": "1",
+      "value": true,
+      "column": "day",
+      "countDistinct": false,
+      "avg": false,
+      "first": false
+    },
+    {
+      "leadDiff": false,
+      "min": false,
+      "max": false,
+      "lagDiff": false,
+      "count": false,
+      "last": false,
+      "leadValues": "1",
+      "sum": false,
+      "lead": false,
+      "type": "string",
+      "dateDiffUnit": "DAY",
+      "lag": false,
+      "lagValues": "1",
+      "value": true,
+      "column": "Site",
+      "countDistinct": false,
+      "avg": false,
+      "first": false
+    },
+    {
+      "leadDiff": false,
+      "min": false,
+      "max": false,
+      "lagDiff": false,
+      "count": false,
+      "last": false,
+      "leadValues": "1",
+      "sum": false,
+      "lead": false,
+      "type": "double",
+      "dateDiffUnit": "DAY",
+      "lag": true,
+      "lagValues": "1,7",
+      "value": true,
+      "column": "consomation_day",
+      "countDistinct": false,
+      "avg": false,
+      "first": false
+    },
+    {
+      "leadDiff": false,
+      "min": false,
+      "max": false,
+      "lagDiff": false,
+      "count": false,
+      "last": false,
+      "leadValues": "1",
+      "sum": false,
+      "lead": false,
+      "type": "double",
+      "dateDiffUnit": "DAY",
+      "lag": true,
+      "lagValues": "1",
+      "value": true,
+      "column": "temperature_day",
+      "countDistinct": false,
+      "avg": true,
+      "first": false
+    }
+  ],
+  "engineParams": {
+    "hive": {
+      "skipPrerunValidate": false,
+      "hiveconf": [],
+      "addDkuUdf": false,
+      "executionEngine": "HIVECLI_LOCAL",
+      "inheritConf": "default"
+    },
+    "impala": {
+      "forceStreamMode": true
+    },
+    "sparkSQL": {
+      "pipelineAllowMerge": true,
+      "sparkConfig": {
+        "inheritConf": "default",
+        "conf": []
+      },
+      "pipelineAllowStart": true,
+      "overwriteOutputSchema": false,
+      "readParams": {
+        "map": {}
+      },
+      "useGlobalMetastore": false
+    },
+    "lowerCaseSchemaIfEngineRequiresIt": true
+  },
+  "keys": [],
+  "postFilter": {
+    "enabled": false,
+    "distinct": false
+  },
+  "windows": [
+    {
+      "limitFollowing": false,
+      "windowLimitMode": "ROWS",
+      "enableLimits": true,
+      "followingRows": 0,
+      "windowLowerBound": 0,
+      "limitPreceding": true,
+      "enablePartitioning": true,
+      "enableOrdering": true,
+      "orders": [
+        {
+          "desc": false,
+          "column": "day"
+        }
+      ],
+      "precedingRows": 7,
+      "partitioningColumns": [
+        "Site"
+      ],
+      "windowUpperBound": 0
+    }
+  ],
+  "preFilter": {
+    "enabled": false,
+    "distinct": false
+  },
+  "rowNumber": false,
+  "ntile": false
+}

@@ -1,0 +1,214 @@
+{
+  "checklists": {
+    "checklists": []
+  }, 
+  "creationTag": {
+    "lastModifiedBy": {
+      "login": "admin"
+    }, 
+    "lastModifiedOn": 1486551094355, 
+    "versionNumber": 0
+  }, 
+  "dashboardCreationId": "IQVACLV", 
+  "listed": false, 
+  "name": "Per weekday on data_prepared", 
+  "owner": "admin", 
+  "params": {
+    "datasetSmartName": "data_prepared", 
+    "def": {
+      "axis1LogScale": false, 
+      "axis2LogScale": false, 
+      "boxplotBreakdownDim": [], 
+      "boxplotValue": [], 
+      "bubblesOptions": {
+        "defaultRadius": 5.0
+      }, 
+      "colorMeasure": [], 
+      "colorOptions": {
+        "ccScaleMode": "NORMAL", 
+        "colorPalette": "default", 
+        "singleColor": "#659a88", 
+        "transparency": 0.9
+      }, 
+      "colorPaletteType": "LINEAR", 
+      "computeMode": "NORMAL", 
+      "disableSafetyLimits": false, 
+      "filters": [], 
+      "genericDimension0": [
+        {
+          "column": "DATE_LOCAL_parsed", 
+          "dateParams": {
+            "mode": "DAY_OF_WEEK"
+          }, 
+          "filters": [], 
+          "generateOthersCategory": true, 
+          "isA": "dimension", 
+          "maxValues": 0, 
+          "numParams": {
+            "emptyBinsMode": "ZEROS"
+          }, 
+          "oneTickPerBin": false, 
+          "possibleSorts": [
+            {
+              "label": "Natural ordering", 
+              "sortAscending": true, 
+              "type": "NATURAL"
+            }, 
+            {
+              "label": "Average of consomation, descending", 
+              "measureIdx": 0, 
+              "type": "AGGREGATION"
+            }, 
+            {
+              "label": "Average of consomation, ascending", 
+              "measureIdx": 0, 
+              "sortAscending": true, 
+              "type": "AGGREGATION"
+            }
+          ], 
+          "sort": {
+            "label": "Natural ordering", 
+            "sortAscending": true, 
+            "type": "NATURAL"
+          }, 
+          "type": "DATE"
+        }
+      ], 
+      "genericDimension1": [
+        {
+          "column": "Site", 
+          "filters": [], 
+          "generateOthersCategory": true, 
+          "isA": "dimension", 
+          "maxValues": 20, 
+          "numParams": {
+            "emptyBinsMode": "ZEROS"
+          }, 
+          "oneTickPerBin": false, 
+          "possibleSorts": [
+            {
+              "label": "Natural ordering", 
+              "sortAscending": true, 
+              "type": "NATURAL"
+            }, 
+            {
+              "label": "Average of consomation, descending", 
+              "measureIdx": 0, 
+              "type": "AGGREGATION"
+            }, 
+            {
+              "label": "Average of consomation, ascending", 
+              "measureIdx": 0, 
+              "sortAscending": true, 
+              "type": "AGGREGATION"
+            }
+          ], 
+          "sort": {
+            "label": "Natural ordering", 
+            "sortAscending": true, 
+            "type": "NATURAL"
+          }, 
+          "type": "ALPHANUM"
+        }
+      ], 
+      "genericMeasures": [
+        {
+          "column": "consomation", 
+          "computeMode": "NORMAL", 
+          "computeModeDim": 1, 
+          "displayAxis": "axis1", 
+          "displayType": "column", 
+          "displayed": true, 
+          "function": "AVG", 
+          "isA": "measure", 
+          "type": "NUMERICAL"
+        }
+      ], 
+      "geometry": [], 
+      "groupDimension": [], 
+      "hexbinNumber": 20, 
+      "hexbinRadius": 20, 
+      "hexbinRadiusMode": "NUM_HEXAGONS", 
+      "includeZero": false, 
+      "mapGridOptions": {
+        "gridLatDeg": 0.6, 
+        "gridLonDeg": 0.6
+      }, 
+      "mapOptions": {
+        "lockSquareGrid": false, 
+        "tilesLayer": "mapquest-std"
+      }, 
+      "name": "Per weekday", 
+      "pieOptions": {
+        "donutHoleSize": 50.0
+      }, 
+      "scatterOptions": {
+        "equalScales": false, 
+        "identityLine": false
+      }, 
+      "showLegend": true, 
+      "showXAxis": false, 
+      "sizeMeasure": [], 
+      "smoothing": true, 
+      "strokeWidth": 1, 
+      "thumbnailData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAAiElEQVRoge3SsQ2AMBBD0VSswZi0zEPNTMxBC6WVGF/E/1IqN/cQrRHR71q383q+9D32AIv7dHWD92N5ver1gqf7AwAP3ssFePBeLjf48w+SBgF2lwYBdpcGAXaXBgF2lwYBdpcGAXaXBgEWd7n0wYDFXS59MGBxl0sfDHjwDjh9ULlfnojKdAMkAQtMChhD/AAAAABJRU5ErkJggg==", 
+      "tooltipMeasures": [], 
+      "type": "grouped_columns", 
+      "uaColor": [], 
+      "uaShape": [], 
+      "uaSize": [], 
+      "uaTooltip": [], 
+      "uaXDimension": [], 
+      "uaYDimension": [], 
+      "useLiveProcessingIfAvailable": true, 
+      "userEditedName": true, 
+      "variant": "normal", 
+      "xAxisMode": "NORMAL", 
+      "xDimension": [], 
+      "xMeasure": [], 
+      "yAxisMode": "NORMAL", 
+      "yDimension": [], 
+      "yMeasure": []
+    }, 
+    "engineType": "LINO", 
+    "refreshableSelection": {
+      "_refreshTrigger": 2, 
+      "autoRefreshSample": false, 
+      "selection": {
+        "filter": {
+          "distinct": false, 
+          "enabled": true, 
+          "uiData": {
+            "conditions": [
+              {
+                "col": "DATE_LOCAL_parsed", 
+                "input": "Site", 
+                "num": 0.0, 
+                "operator": "contains", 
+                "string": "ID31"
+              }
+            ], 
+            "mode": "&&"
+          }
+        }, 
+        "latestPartitionsN": 1, 
+        "maxReadUncompressedBytes": -1, 
+        "maxRecords": 200000, 
+        "partitionSelectionMethod": "ALL", 
+        "samplingMethod": "FULL", 
+        "targetRatio": 0.02, 
+        "useMemTable": false, 
+        "withinFirstN": -1
+      }
+    }
+  }, 
+  "tags": [], 
+  "type": "chart", 
+  "versionTag": {
+    "lastModifiedBy": {
+      "login": "admin"
+    }, 
+    "lastModifiedOn": 1486551094355, 
+    "versionNumber": 0
+  }
+}
